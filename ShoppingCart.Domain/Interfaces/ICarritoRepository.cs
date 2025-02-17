@@ -4,7 +4,6 @@ namespace ShoppingCart.Domain.Interfaces
 {
     public interface ICarritoRepository
     {
-        Task<Usuario> ObtenerUsuarioPorDNIAsync(string dniUsuario);
         Task<Carrito> CrearCarritoAsync(Carrito carrito);
         Task<Carrito?> ObtenerCarritoPorIdAsync(int carritoId);
         Task EliminarCarritoAsync(int carritoId);

@@ -153,9 +153,4 @@ public class CarritoRepository : ICarritoRepository
             throw;
         }
     }
-
-    public async Task<Usuario> ObtenerUsuarioPorDNIAsync(string dniUsuario)
-    {
-        return await _context.Usuarios.FirstOrDefaultAsync(u => u.Dni == dniUsuario);
-    }
 }

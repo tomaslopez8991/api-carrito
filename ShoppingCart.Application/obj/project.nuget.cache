@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "BFFp4Zzemco=",
+  "dgSpecHash": "3DylhjG1hP4=",
   "success": true,
-  "projectFilePath": "C:\\Users\\USUARIO\\source\\repos\\API-DANAIDE\\ShoppingCart.Application\\ShoppingCart.Application.csproj",
+  "projectFilePath": "C:\\Users\\USUARIO\\Source\\Repos\\api-carrito\\ShoppingCart.Application\\ShoppingCart.Application.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\USUARIO\\.nuget\\packages\\microsoft.extensions.caching.abstractions\\9.0.2\\microsoft.extensions.caching.abstractions.9.0.2.nupkg.sha512",
     "C:\\Users\\USUARIO\\.nuget\\packages\\microsoft.extensions.configuration.abstractions\\9.0.2\\microsoft.extensions.configuration.abstractions.9.0.2.nupkg.sha512",

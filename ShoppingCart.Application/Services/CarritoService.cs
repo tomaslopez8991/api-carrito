@@ -10,11 +10,13 @@ namespace ShoppingCart.Application.Services;
 public class CarritoService
 {
     private readonly ICarritoRepository _carritoRepository;
+    private readonly IUsuarioRepository _usuarioRepository;
     private readonly IDistributedCache _cache;
 
-    public CarritoService(ICarritoRepository carritoRepository, IDistributedCache cache)
+    public CarritoService(ICarritoRepository carritoRepository, IUsuarioRepository usuarioRepository, IDistributedCache cache)
     {
         _carritoRepository = carritoRepository;
+        _usuarioRepository = usuarioRepository;
         _cache = cache;
     }
 
@@ -23,7 +25,7 @@ public class CarritoService
         if (string.IsNullOrEmpty(dniUsuario))
             throw new ValidationException("El DNI del usuario es requerido.");
 
-        var usuario = await _carritoRepository.ObtenerUsuarioPorDNIAsync(dniUsuario);
+        var usuario = await _usuarioRepository.ObtenerUsuarioPorDNIAsync(dniUsuario);
         if (usuario == null)
             throw new NotFoundException($"No se encontró un usuario con el DNI {dniUsuario}.");
 
@@ -85,15 +87,5 @@ public class CarritoService
     public async Task<List<Producto>> ObtenerProductosMasCarosAsync(string dniUsuario)
     {
         return await _carritoRepository.ObtenerProductosMasCarosAsync(dniUsuario);
-    }
-
-    public async Task<Usuario> ObtenerUsuarioPorDNIAsync(string dni)
-    {
-        var usuario = await _carritoRepository.ObtenerUsuarioPorDNIAsync(dni);
-        return usuario != null ? new Usuario
-        {
-            Dni = usuario.Dni,
-            EsVip = usuario.EsVip
-        } : null;
     }
 }
